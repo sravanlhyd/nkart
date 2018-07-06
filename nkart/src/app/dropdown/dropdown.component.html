@@ -1,0 +1,6 @@
+<select class="form-control" [(ngModel)]="selectedValue"
+(change)="dropDownSelectionChange()"
+>
+  <option *ngFor="let d of dataList"
+   value="{{d.value}}" >{{d.text}}</option>
+</select>

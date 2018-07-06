@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-header">User Details</div>
+  <div class="card-body">
+
+    <ul class="list-group" *ngIf="selectedProfile">
+      <li class="list-group-item">
+        <span>First Name: </span>{{selectedProfile.firstName}}</li>
+      <li class="list-group-item">
+        <span>Last Name: </span>{{selectedProfile.lastName}}</li>
+      <li class="list-group-item">
+        <span>User Name: </span>{{selectedProfile.userName}}</li>
+      <li class="list-group-item">
+        <span>Age: </span>{{selectedProfile.age}}</li>
+    </ul>
+  </div>
+</div>

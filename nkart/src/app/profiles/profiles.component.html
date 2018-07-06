@@ -1,0 +1,58 @@
+<div class="row">
+ 
+    <table class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Phone</th>
+          <th>Salary</th>
+          <th>CreatedDate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of profiles|slice:pagination.startIndex:pagination.endIndex" (click)="getProfileById(p)">
+          <td>{{p.firstName|uppercase}}</td>
+          <td>{{p.lastName|lowercase}}</td>
+          <td>{{p.phoneNumber|phoneformat}}</td>
+          <!-- <td>{{p.phoneNumber|currency:'INR'}}</td> -->
+          <td>{{p.CreatedDate|date:'long'}}</td>
+          
+        </tr>
+        </tbody>
+</table>
+<pagination [totalItems]="profiles.length" 
+[itemsPerPage]="5"
+[(ngModel)]="currentPage" 
+(pageChanged)="pageChanged($event)"></pagination>
+
+
+
+
+  <!-- <div class="col-md-3">
+      <div class="card">
+          <div class="card-header">User Details</div>
+          <div class="card-body">
+
+              <ul class="list-group" *ngIf="selectedProfile">
+                  <li class="list-group-item">
+                    <span>First Name: </span>{{selectedProfile.firstName}}</li>
+                  <li class="list-group-item">
+                      <span>Last Name: </span>{{selectedProfile.lastName}}</li>
+                  <li class="list-group-item">
+                      <span>User Name: </span>{{selectedProfile.userName}}</li>
+                      <li class="list-group-item">
+                          <span>Age: </span>{{selectedProfile.age}}</li>
+                </ul>
+          </div> 
+         
+        </div>
+
+  </div> -->
+  
+</div>
+
+<div class="row">
+  <app-profile-details [selectedProfile]="selectedItem"></app-profile-details>
+  
+</div>
